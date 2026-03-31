@@ -27,7 +27,7 @@
 #define PIN_QTR_ESQUERDA 32 // ADC1_CH4
 #define PIN_QTR_DIREITA 33 // ADC_CH5
 
-// receptor para ligar o robo 
+// switch para ligar o robo 
 #define PIN_BTN 13
 
 #endif /* MAIN_PINOS_H_ */
