@@ -1,3 +1,7 @@
+#include "sensor_distancia.h"
+#include "freertos/FreeRTOS.h"   // <- adicione
+#include "freertos/task.h" 
+#include <math.h>
 #include "esp_adc/adc_oneshot.h"
 #include "pinos.h"
 
@@ -25,8 +29,25 @@ void inicializar_sensores(void) {
     adc_oneshot_config_channel(adc1_handle, ADC_CHANNEL_5, &cfg_canal); // QTR Dir   - GPIO33
 }
 
-int ler_sensor(adc_channel_t canal) {
-    int valor = 0;
-    adc_oneshot_read(adc1_handle, canal, &valor);
-    return valor;
+int ler_sensor_raw(adc_channel_t canal) {
+    int soma = 0;
+    for (int i = 0; i < 8; i++) {
+        int valor = 0;
+        adc_oneshot_read(adc1_handle, canal, &valor);
+        soma += valor;
+		printf("%d ", valor);
+        vTaskDelay(pdMS_TO_TICKS(2)); // pequena pausa entre leituras
+    }
+    return soma / 8;
+}
+//calibração
+int raw_para_cm(int raw){
+    if (raw<100) return 999;
+    float tensao = raw * (3.1f / 4095.0f);
+    float cm = 13.0f * pow(tensao, -1.0f);
+	
+    if (cm < 4.0f)  cm = 4.0f;
+    if (cm > 30.0f) cm = 30.0f;
+	
+    return (int)cm;
 }

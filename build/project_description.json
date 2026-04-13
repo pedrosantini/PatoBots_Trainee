@@ -1,7 +1,7 @@
 {
     "version":            "1.3",
     "project_name":       "app-template",
-    "project_version":    "1",
+    "project_version":    "eb3b728-dirty",
     "project_path":       "C:/Users/brun0/workspace/sumo_treinee",
     "idf_path":           "C:/esp/v6.0/esp-idf",
     "build_dir":          "C:/Users/brun0/workspace/sumo_treinee/build",
@@ -1735,7 +1735,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/brun0/workspace/sumo_treinee/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/Users/brun0/workspace/sumo_treinee/main/main.c", "C:/Users/brun0/workspace/sumo_treinee/main/sensor_distancia.c" ],
+            "sources": [ "C:/Users/brun0/workspace/sumo_treinee/main/main.c", "C:/Users/brun0/workspace/sumo_treinee/main/sensor_distancia.c", "C:/Users/brun0/workspace/sumo_treinee/main/motor.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

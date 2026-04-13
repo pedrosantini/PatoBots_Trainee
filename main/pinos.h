@@ -1,5 +1,5 @@
-#ifndef MAIN_PINOS_H_
-#define MAIN_PINOS_H_
+#ifndef PINOS_H_
+#define PINOS_H_
 
 // Motor Right - Direita
 #define PIN_MOTOR_RIGHT_PWM     18 //velocidade do motor
@@ -27,7 +27,7 @@
 #define PIN_QTR_ESQUERDA 32 // ADC1_CH4
 #define PIN_QTR_DIREITA 33 // ADC_CH5
 
-// switch para ligar o robo 
+// switch para alterar entre autonomo e rc 
 #define PIN_BTN 13
 
 #endif /* MAIN_PINOS_H_ */

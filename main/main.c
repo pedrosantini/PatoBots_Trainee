@@ -2,7 +2,6 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_adc/adc_oneshot.h"
-#include "pinos.h"
 #include "sensor_distancia.h"
 
 void app_main(void) {
@@ -11,11 +10,11 @@ void app_main(void) {
     printf("--- Teste de Sensores Sumo 500g ---\n");
 
     while (1) {
-        int frente   = ler_sensor(ADC_CHANNEL_6); // IR Frente
-        int qtr_esq  = ler_sensor(ADC_CHANNEL_4); // QTR Esquerda
+        int raw = ler_sensor_raw(ADC_CHANNEL_7);
+        int cm  = raw_para_cm(raw);
+		
+        printf("Raw: %4d | Distancia: %2d cm\n", raw, cm);
 
-        printf("IR Frente: %4d | QTR Esq: %4d\n", frente, qtr_esq);
-
-        vTaskDelay(pdMS_TO_TICKS(200));
+        vTaskDelay(pdMS_TO_TICKS(100));
     }
 }
