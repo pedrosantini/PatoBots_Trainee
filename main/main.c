@@ -10,6 +10,7 @@ void app_main(void) {
     printf("--- Teste de Sensores Sumo 500g ---\n");
 
     while (1) {
+
         int raw = ler_sensor_raw(ADC_CHANNEL_7);
         int cm  = raw_para_cm(raw);
 		
